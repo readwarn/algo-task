@@ -1,15 +1,19 @@
 // TASK 1
 const convertFahrToCelsius = (fahrenheit)=>{
-    if(typeof fahrenheit === 'number'){
-        const celcius = (fahrenheit - 32) / 1.8;
-        return `${celcius.toFixed(4)}`;
+    let fahr = parseFloat(fahrenheit);
+    let celcius;
+    
+    if(!isNaN(fahr) && (typeof fahrenheit ==="string" || typeof fahrenheit === "number")){
+        celcius = ((fahr - 32) / 1.8).toFixed(4);
     }
     else if(Array.isArray(fahrenheit)){
-        return `${JSON.stringify(fahrenheit)} is not a valid number but a/an array`
+        celcius = `${JSON.stringify(fahrenheit)} is not a valid number but a/an array`
     }
     else{
-        return `${JSON.stringify(fahrenheit)} is not a valid number but a/an ${typeof fahrenheit}`
+        celcius = `${JSON.stringify(fahrenheit)} is not a valid number but a/an ${typeof fahrenheit}`
     }
+    console.log(celcius)
+    return celcius;  
 }
 
 
@@ -44,14 +48,17 @@ const stringifyFactors = (number)=>{
 }
 
 const checkYuGiOh = (n)=>{
-    if(typeof n !== 'number'){
-        console.log(`invalid parameter: ${JSON.stringify(n)}`);
-        return;
+    let yuGiOh = [];
+    const count = parseFloat(n); 
+
+    if(!isNaN(count) && (typeof n ==="string" || typeof n ==="number")){
+        for(let i=1;i<=count;i++){
+            yuGiOh.push(stringifyFactors(i));
+        }
     }
-    let yuGiOh = []; 
-    for(let i=1;i<=n;i++){
-        yuGiOh.push(stringifyFactors(i));
+    else{
+        yuGiOh = `invalid parameter: ${JSON.stringify(n)}`;
     }
     console.log(yuGiOh);
+    return yuGiOh;
 }
-
