@@ -1,9 +1,9 @@
 // TASK 1
 const convertFahrToCelsius = (fahrenheit)=>{
-    let fahr = parseFloat(fahrenheit);
+    let fahr = Number(fahrenheit);
     let celcius;
     
-    if(!isNaN(fahr) && (typeof fahrenheit ==="string" || typeof fahrenheit === "number")){
+    if(!isNaN(fahr)){
         celcius = ((fahr - 32) / 1.8).toFixed(4);
     }
     else if(Array.isArray(fahrenheit)){
@@ -49,9 +49,9 @@ const stringifyFactors = (number)=>{
 
 const checkYuGiOh = (n)=>{
     let yuGiOh = [];
-    const count = parseFloat(n); 
+    const count = Number(n); 
 
-    if(!isNaN(count) && (typeof n ==="string" || typeof n ==="number")){
+    if(!isNaN(count)){
         for(let i=1;i<=count;i++){
             yuGiOh.push(stringifyFactors(i));
         }
