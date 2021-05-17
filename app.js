@@ -3,7 +3,7 @@ const convertFahrToCelsius = (fahrenheit)=>{
     let fahr = Number(fahrenheit);
     let celcius;
     
-    if(!isNaN(fahr)){
+    if(!isNaN(fahr) && typeof fahrenheit !=="boolean"){
         celcius = ((fahr - 32) / 1.8).toFixed(4);
     }
     else if(Array.isArray(fahrenheit)){
@@ -51,7 +51,7 @@ const checkYuGiOh = (n)=>{
     let yuGiOh = [];
     const count = Number(n); 
 
-    if(!isNaN(count)){
+    if(!isNaN(count) && typeof n !=="boolean"){
         for(let i=1;i<=count;i++){
             yuGiOh.push(stringifyFactors(i));
         }
@@ -62,3 +62,4 @@ const checkYuGiOh = (n)=>{
     console.log(yuGiOh);
     return yuGiOh;
 }
+checkYuGiOh(true);
